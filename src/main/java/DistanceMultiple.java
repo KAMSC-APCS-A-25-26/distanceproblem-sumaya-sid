@@ -32,8 +32,44 @@ import java.util.Scanner;
 
 public class DistanceMultiple {
     public static void main(String[] args) {
+        // Read in scanning object
+        Scanner scan = new Scanner(System.in);
 
+        // Assign primitive type and initialize variables
+        int numRuns;
 
+        // Signature
+        System.out.println("Sumaya\nAPCS-A\nLewis 2.8 Arithmetic Program\n");
+
+        // Prompt user for number of runs
+        System.out.print("How many runs?: ");
+        numRuns = scan.nextInt();
+        scan.nextLine();
+
+        for(int j=0; j<numRuns; j++)
+        {
+            // Prompt user to enter coordinates
+            System.out.print("\nEnter your 2 coordinates: ");
+
+            // Take out any unnecessary information
+            String[] pt = scan.nextLine().replaceAll("[()]", "").split(" ");
+
+            // Split the coordinate point string by comma
+            String [] p1 = pt[0].split(",");
+            String [] p2 = pt[1].split(",");
+
+            // Convert x and y coordinates from String to a double
+            double x = Double.parseDouble(p1[0]);
+            double y = Double.parseDouble(p1[1]);
+            double x1 = Double.parseDouble(p2[0]);
+            double y1 = Double.parseDouble(p2[1]);
+
+            // Calculate the distance
+            double distance = Math.sqrt(Math.pow(x1-x,2) + Math.pow(y1-y,2));
+
+            // Print out the distance
+            System.out.println("\nDistance: " + distance + "\n");
+        }
     }
 
 }
