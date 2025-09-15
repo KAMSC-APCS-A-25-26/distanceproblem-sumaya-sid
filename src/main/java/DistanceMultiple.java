@@ -48,11 +48,15 @@ public class DistanceMultiple {
 
         for(int j=0; j<numRuns; j++)
         {
-            // Prompt user to enter coordinates
+            // Prompt user to enter coordinates and scan them in
             System.out.print("\nEnter your 2 coordinates: ");
+            String input = scan.nextLine();
 
-            // Take out any unnecessary information
-            String[] pt = scan.nextLine().replaceAll("[()]", "").split(" ");
+            // Removes parentheses
+            input = input.substring(1, input.length() - 1);
+
+            // Split each point by the middle parentheses ) and (
+            String[] pt = input.split("\\)\\(");
 
             // Split the coordinate point string by comma
             String [] p1 = pt[0].split(",");
